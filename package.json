@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^6.4.1",
+    "next": "latest",
+    "pg": "^8.13.3",
+    "react": "latest",
+    "react-dom": "latest",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "22.13.5",
+    "@types/react": "19.0.10",
+    "prisma": "^6.4.1"
+  }
+}

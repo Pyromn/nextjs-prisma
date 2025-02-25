@@ -1,0 +1,4 @@
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:root@localhost:5432/postgres?schema=public"
+}
