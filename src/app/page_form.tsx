@@ -1,17 +1,30 @@
 
+'use client'
+
 import Image from "next/image"
-import { PrismaClient } from '@prisma/client'
+import { FormEvent } from 'react'
 
-const prisma = new PrismaClient()
+export default function Home() {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
 
-export default async function Home() {
-  const users = await prisma.user.findMany()
+    const formData = new FormData(event.currentTarget)
+    const response = await fetch('/api/submit', {
+      method: 'POST',
+      body: formData,
+    })
 
-  console.log(users.length)
-  console.log(prisma.user.fields)
+    // Handle response if necessary
+    const data = await response.json()
+    // ...
+  }
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <form onSubmit={onSubmit}>
+        <input type="text" name="name" />
+        <button type="submit">Submit</button>
+      </form>
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Image
           className="dark:invert"
