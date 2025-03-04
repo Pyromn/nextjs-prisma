@@ -5,8 +5,10 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 export default async function Home() {
+  const data = fetch('https://localhost:8000/api/users')
   const users = await prisma.user.findMany()
 
+  console.log(data)
   console.log(users.length)
   console.log(prisma.user.fields)
 
